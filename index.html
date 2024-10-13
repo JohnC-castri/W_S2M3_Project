@@ -100,8 +100,22 @@
     // 🧠 There are many ways to solve this, but practice using a while loop.
     // 🧠 Work out using pen and paper how the round number and the lifePoints change after each round.
     // 🧠 As long as there are lifePoints, decrease lifePoints by round number, and increase round number by one.
-    function fightMonsters() {
-
+    function fightMonsters(lifepoints) {
+      let round = 0
+      let HpSub = 1
+      while (lifepoints > 0) {
+        if (lifepoints > 0) {
+          // console.log(`before round add amount ${round}`)
+          // console.log(`current subtraction amount ${HpSub}`)
+          // console.log(`hp before subtracted, ${lifepoints}`)
+          round++
+          lifepoints -= HpSub
+          // console.log(`hp after sub, ${lifepoints}`)
+          HpSub++
+          // console.log(`after adding sub amount, ${HpSub}`)
+        }
+      }
+      return `You died in round ${round}`
     }
 
     // 👉 CHALLENGE 5
@@ -111,8 +125,19 @@
     // findEvenNums([0, 1, 2, 3, 4]) // should return [0, 2, 4]
     // ❗ Notes:
     // 🧠 Use any kind of loop you'd like and the push method to populate the array of even numbers.
-    function findEvenNums() {
-
+    function findEvenNums(argo) {
+      let copyslice = argo.slice()
+      let evennumsarg = []
+      // console.log(`is slice copy working? ${copyslice}`)
+      for (let i = 0; i < copyslice.length; i++) {
+        let indro = copyslice[i]
+        // console.log(`is indro working? ${indro}`)
+        if (indro % 2 === 0) {
+          evennumsarg.push(indro)
+          // console.log(`push result if even: ${evennumsarg}`)
+        }
+      }
+      return evennumsarg
     }
 
     // 👉 CHALLENGE 6
@@ -122,8 +147,28 @@
     // 🧠 Ages in the subarrays should appear in the same order they appeared in the original array.
     // 🧠 Examples of usage:
     // separateAges([31, 12, 25, 65, 84, 20]) // should return [[12, 20], [31, 25, 65, 84]]
-    function separateAges() {
-
+    function separateAges(ages) {
+      let argbelow = []
+      let argabove = []
+      let agescopy = ages.slice()
+      // console.log(`did age copy correctly? ${agescopy}`)
+      for (let ido = 0; ido < agescopy.length; ido++) {
+        let age = agescopy[ido]
+        // console.log(`is age working? ${age}`)
+        if (age < 21) {
+          // console.log(`is age under 21 check: ${age}`)
+          argbelow.push(age)
+          // console.log(`argbelow check after push: ${argbelow}`)
+        }
+        else {
+          // console.log(`is age above 21: ${age}`)
+          argabove.push(age)
+          // console.log(`argabove check after push: ${argabove}`)
+        }
+      }
+      let ageorg = [argbelow, argabove]
+      // console.log(`did ages combine correcly? ${ageorg}`)
+      return ageorg
     }
 
     // 👉 CHALLENGE 7
@@ -133,7 +178,27 @@
     // 🧠 The "tail" prop contains an array holding the elements of the array after the first one.
     // 🧠 Examples of usage:
     // headAndTail([1, 2, 3]) // should return { head: 1, tail: [2, 3] }
-    function headAndTail() {
+    function headAndTail(arrago) {
+      let results = { head: 0, tail: [] }
+      for (let i = 0; i < arrago.length; i++) {
+        let combo = arrago[i]
+        console.log(`is arrago working? ${arrago}`)
+        if (i === 0) {
+          console.log(`is it first index? ${i}`)
+          console.log(`value of first index ${combo}`)
+          results.head = combo
+          console.log(`is first arg for heads done right? ${results.head}`)
+          console.log(results.head)
+        }
+        else {
+          results.tail.push(combo)
+          console.log(`is it pushing correctly to tails? ${results.tail}`)
+          console.log(results.tail)
+        }
+      }
+      console.log(`is results combined correctly?`)
+      console.log(results)
+      return results
 
     }
 
@@ -144,8 +209,27 @@
     // nestedLoops(['hello', 'goodbye']) // should return ['hEllO', 'gOOdbyE']
     // ❗ Notes:
     // 🧠 To capitalize a string you can use its toUpperCase method: "a".toUpperCase() returns "A"
-    function nestedLoops() {
-
+    function nestedLoops(vowls) {
+      // vowels are AEIOU
+      let copyvow = vowls.slice()
+      for (let i = 0; i < copyvow.length; i++) {
+        let word = copyvow[i]
+        let newWord = ''
+        // console.log(`what is the word: ${word}`)
+        for (let j = 0; j < word.length; j++) {
+          let letter = word[j]
+          if (letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u') {
+            // console.log(`is it undercase vowl, ${letter}`)
+            let capletter = letter.toUpperCase()
+            // console.log(`is it now upper case: ${capletter}`)
+            newWord += capletter; // Add the capitalized letter to the new string
+          } else {
+            newWord += letter; // Add the unchanged letter to the new string
+          }
+        }
+        copyvow[i] = newWord;
+      }
+      return copyvow
     }
 
     // 👉 CHALLENGE 9

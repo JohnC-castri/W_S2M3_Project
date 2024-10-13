@@ -31,7 +31,17 @@
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the array.
     // 🧠 As you have done in the past, declare a variable before you start looping, to accumulate the result.
     function sumNumsFor(nums) {
-
+      let tottal = 0
+      for (let i = 0; i < nums.length; i++) {
+        let comb = nums[i]
+        if (typeof comb === 'number') {
+          if (comb === 13) {
+            return "I'm too superstitious!"
+          }
+          tottal += comb
+        }
+      }
+      return tottal
     }
 
     // 👉 CHALLENGE 2
@@ -41,7 +51,15 @@
     // ❗ Notes:
     // 🧠 There are many ways to solve this, but practice using a for loop to iterate over the characters of the string.
     function stripVowels(str) {
-
+      let tottal2 = []
+      for (let i = 0; i < str.length; i++) {
+        let comba = str[i]
+        if (comba !== 'a' && comba !== 'e' && comba !== 'i' && comba !== 'o' && comba !== 'u') {
+          console.log(comba)
+          tottal2.push(comba)
+        }
+      }
+      return tottal2.join("")
     }
 
     // 👉 CHALLENGE 3
@@ -49,8 +67,20 @@
     // 🧠 Examples of usage:
     // sumNumsWhile([1, 2, 3]) // should return 6
     // sumNumsWhile([1, 2, 13]) // should return "I'm too superstitious!"
-    function sumNumsWhile() {
-
+    function sumNumsWhile(sums) {
+      let res = 0
+      let idle = 0;
+      while (idle < sums.length) {
+        let combra = sums[idle];
+        if (typeof combra === 'number') {
+          if (combra === 13) {
+            return "I'm too superstitious!"
+          }
+          res += combra
+        }
+        idle++;
+      }
+      return res
     }
 
     // 👉 CHALLENGE 4
